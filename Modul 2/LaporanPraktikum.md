@@ -42,7 +42,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/output/Soal1.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal1.png)
 [penjelasan]
 Penulis mendeklarasikan variable satu dua tiga dan juga temp sebagai string, lalu dibuat inputan pada variabel satu dua dan tiga, selanjutnya akan dilakukan penambahan variable string satu + dua + tiga, lalu selanjutnya dilakukan pemindahan nilai variable, variable satu dimasukan ke variable temp(tempat meletakkan data sementara) dua diletakan di variable satu, tiga diletakan di variabel dua, dan temp diletakan di variabel tiga, yang dimana jadinya nilai dari variabel temp adalah satu, nilai dari variabel satu adalah dua, nilai dari variabel dua adalah tiga, dan nilai dari variabel tiga adalah isi dari variabel temp yaitu satu, jadi output akhirnya menjadi dua tiga satu
 
@@ -96,7 +96,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/output/Soal2.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal2.png)
 [penjelasan]
 Penulis mendeklarasikan variable w1, w2, w3, w4, acuan1, acuan2 bertipe data string dan
 variabel hasil bertipe data boolean, lalu dideklarasikan i bertipe data integer bernilai 1,
@@ -156,7 +156,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/output/Soal3.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal3.png)
 [penjelasan]
 Pada program diatas penulis mendeklarasikan variable parsel, kg, gram sebagai integer
 lalu membuat inputan parsel, kemudian melakukan konversi untuk mendapatkan nilai
