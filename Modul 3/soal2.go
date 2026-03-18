@@ -3,22 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	var a, b int
-	fmt.Scan(&a, &b)
-	if a >= b {
-		fmt.Println(permutasi(a, b))
-	} else {
-		fmt.Println(permutasi(b, a))
-	}
+	var a, b, c int
+	fmt.Scan(&a, &b, &c)
+	fmt.Printf("(fogog)(%d) = %d ", a, fx(a))
+	fmt.Printf("(gohof)(%d) = %d ", b, gx(b))
+	fmt.Printf("(hofog)(%d) = %d ", c, hx(c))
 }
-func faktorial(n int) int {
-	var hasil int = 1
-	var i int
-	for i = 1; i <= n; i++ {
-		hasil = hasil * i
-	}
+
+func fx(n int) int {
+	hasil := ((n + 1) - 2) * ((n + 1) - 2)
 	return hasil
 }
-func permutasi(n, r int) int {
-	return faktorial(n) / faktorial(n-r)
+
+func gx(n int) int {
+	hasil := (((n * n) + 1) - 2)
+	return hasil
+}
+
+func hx(n int) int {
+	hasil := ((n - 2) * (n - 2)) + 1
+	return hasil
 }
