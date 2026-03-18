@@ -53,7 +53,7 @@ func combination(n, r int) int {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal1.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
 [penjelasan]
 Penulis mendeklarasikan variable a, b, c, d. lalu membuat inputan , lalu memanggil hasil dari permutasi dan kombinasi, dimana hanya nilai n dan r yang di bawa, untuk di proses permutasi, dan kombinasi, dari dua func itu juga memanggil hasil dari factorial pada func actorial untuk di eksekusi sendiri.
 
@@ -108,7 +108,7 @@ func hx(n int) int {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal2.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
 [penjelasan]
 Penulis mendeklarasikan variable 1,b,c dilakukan inputan dan output di atas, lalu dibuat 3 func untuk fogog, gohof, dan hofog, lalu dari outputan di panggil langsung func tsb
 
@@ -171,6 +171,6 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%202/output/Soal3.png)
+![Screenshot Output Unguided 1_1]https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal3.png)
 [penjelasan]
 Pada program diatas penulis mendeklarasi beberapa variable lalu digunakan inputan scan, lalu dibuat func dalam untuk membandingakan dengan radius, lalu dimasukan ke variabel L1 dan L 2, lalu doberikan struktur ko ntrol if else, yang jika l1 daan l2 mempunyai nilai sama maka titik 1 dan 2, kalau tidak, maka titik dalam lingkaran 1, dan kalau tidak maka titik dalam lingkaran 2, dan kalau tidak maka titik di luar lingkaran 1 dan 2
