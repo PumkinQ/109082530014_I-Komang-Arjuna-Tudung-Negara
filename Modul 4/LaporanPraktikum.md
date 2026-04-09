@@ -10,6 +10,18 @@ Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah ma
 diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng
 untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian
 membantu Jonas? (tidak tentunya ya :p)
+Masukan terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi,
+dengan syarat a ≥ c dan b ≥ d.
+Keluaran terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a
+terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d.
+Catatan: permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan
+menggunakan persamaan berikut!
+P(n, r) =
+n!
+(n−r)!
+, sedangkan C(n, r) =
+n!
+r!(n−r)!
 
 #### soal1.go
 
@@ -20,32 +32,44 @@ import "fmt"
 
 func main() {
 	var a, b, c, d int
+	var hasilc1, hasilc2, hasilp1, hasilp2 int
 	fmt.Scan(&a, &b, &c, &d)
 
 	if a >= c && b >= d {
-		fmt.Println("permutation: ", permutation(a, c))
-		fmt.Println("combination: ", combination(a, c))
-		fmt.Println("permutation: ", permutation(b, d))
-		fmt.Println("combination: ", combination(b, d))
+
+		permutation(a, c, &hasilp1)
+		combination(a, c, &hasilc1)
+		permutation(b, d, &hasilp2)
+		combination(b, d, &hasilc2)
+		fmt.Println(hasilp1, hasilc1)
+		fmt.Print(hasilp2, hasilc2)
 	}
+
 }
 
-func factorial(n int) int {
-	hasil := 1
+func factorial(n int, hasil *int) {
+	*hasil = 1
 	for i := 1; i <= n; i++ {
-		hasil = hasil * i
+		*hasil = *hasil * i
 	}
-	return hasil
 }
 
-func permutation(n, r int) int {
-	hasil := factorial(n) / factorial((n - r))
-	return hasil
+func permutation(n, r int, hasil *int) {
+	var hasilf, hasilnr int
+	factorial(n, &hasilf)
+	factorial(n-r, &hasilnr)
+
+	*hasil = hasilf / hasilnr
+
 }
 
-func combination(n, r int) int {
-	hasil := factorial(n) / (factorial(r) * factorial((n - r)))
-	return hasil
+func combination(n int, r int, hasil *int) {
+	var hasilf, hasilnr, inputr int
+	factorial(n, &hasilf)
+	factorial(n-r, &hasilnr)
+	factorial(r, &inputr)
+	*hasil = hasilf / (inputr * hasilnr)
+
 }
 ```
 
@@ -55,52 +79,80 @@ func combination(n, r int) int {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
 [penjelasan]
-Penulis mendeklarasikan variable a, b, c, d. lalu membuat inputan , lalu memanggil hasil dari permutasi dan kombinasi, dimana hanya nilai n dan r yang di bawa, untuk di proses permutasi, dan kombinasi, dari dua func itu juga memanggil hasil dari factorial pada func actorial untuk di eksekusi sendiri.
+Penulis mendeklarasikan variable a, b, c, d untuk inputan, lalu hasilc1, hasilc2, hasilp1, hasilp2 untuk isian jawaban dari soal permutasi dan combinasi, lalu dibuat if else untuk syarat combinasi dan premutasi, lalu dibuat fmt print untuk hasil hasil dari permutasi dan combinasi, lalu dibuat func factorial dengan variable sbg inputan dan hasil sebagai output, permutasi dengan n dan r sebagai inputan lalu hasil sebagai output dan cobinmsi dengan n dan r sebagai inputan lalu hasil sebagai output.
 
 ## Unguided
 
 ### 2. [Soal]
 
-Diberikan tiga buah fungsi matematika yaitu f (x) = x
-2
-, g (x) = x − 2 dan h (x) = x +
-
-1. Fungsi komposisi (fogoh)(x) artinya adalah f(g(h(x))). Tuliskan f(x), g(x) dan h(x)
-   dalam bentuk function.
-   Masukan terdiri dari sebuah bilangan bulat a, b dan c yang dipisahkan oleh spasi.
-   Keluaran terdiri dari tiga baris. Baris pertama adalah (fogoh)(a), baris kedua (gohof)(b),
-   dan baris ketiga adalah (hofog)(c)!
+Kompetisi pemrograman tingkat nasional berlangsung ketat. Setiap peserta diberikan 8 soal
+yang harus dapat diselesaikan dalam waktu 5 jam saja. Peserta yang berhasil menyelesaikan
+soal paling banyak dalam waktu paling singkat adalah pemenangnya.
+Buat program gema yang mencari pemenang dari daftar peserta yang diberikan. Program
+harus dibuat modular, yaitu dengan membuat prosedur hitungSkor yang mengembalikan total
+soal dan total skor yang dikerjakan oleh seorang peserta, melalui parameter formal.
+Pembacaan nama peserta dilakukan di program utama, sedangkan waktu pengerjaan dibaca
+di dalam prosedur.
+prosedure hitungSkor(in/out soal, skor : integer)
+Setiap baris masukan dimulai dengan satu string nama peserta tersebut diikuti dengan adalah
+8 integer yang menyatakan berapa lama (dalam menit) peserta tersebut menyelesaikan soal.
+Jika tidak berhasil atau tidak mengirimkan jawaban maka otomatis dianggap menyelesaikan
+dalam waktu 5 jam 1 menit (301 menit).
+Satu baris keluaran berisi nama pemenang, jumlah soal yang diselesaikan, dan nilai yang
+diperoleh. Nilai adalah total waktu yang dibutuhkan untuk menyelesaikan soal yang berhasil
+diselesaikan.
 
 #### soal2.go
 
-```go
-package main
+```gopackage main
 
 import "fmt"
 
 func main() {
-	var a, b, c int
-	fmt.Scan(&a, &b, &c)
-	fmt.Printf("(fogog)(%d) = %d ", a, fx(a))
-	fmt.Printf("(gohof)(%d) = %d ", b, gx(b))
-	fmt.Printf("(hofog)(%d) = %d ", c, hx(c))
+	var peserta, pemenang string
+	var maxSoal, minWaktu int
+
+	maxSoal = -1
+	minWaktu = 999999
+
+	for {
+		fmt.Scan(&peserta)
+
+		if peserta == "Selesai" {
+			break
+		}
+
+		var soalSekarang, waktuSekarang int
+		hitungSkor(&soalSekarang, &waktuSekarang)
+
+		if soalSekarang > maxSoal || (soalSekarang == maxSoal && waktuSekarang < minWaktu) {
+			maxSoal = soalSekarang
+			minWaktu = waktuSekarang
+			pemenang = peserta
+		}
+	}
+
+	if pemenang != "" {
+		fmt.Printf("%s %d %d\n", pemenang, maxSoal, minWaktu)
+	}
 }
 
-func fx(n int) int {
-	hasil := ((n + 1) - 2) * ((n + 1) - 2)
-	return hasil
-}
+func hitungSkor(skor, soal *int) {
 
-func gx(n int) int {
-	hasil := (((n * n) + 1) - 2)
-	return hasil
-}
+	var waktu int
 
-func hx(n int) int {
-	hasil := ((n - 2) * (n - 2)) + 1
-	return hasil
-}
+	*soal = 0
+	*skor = 0
 
+	for i := 0; i < 8; i++ {
+		fmt.Scan(&waktu)
+		if waktu < 301 {
+			*soal++
+			*skor += waktu
+		}
+	}
+
+}
 
 ```
 
@@ -110,67 +162,4 @@ func hx(n int) int {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
 [penjelasan]
-Penulis mendeklarasikan variable 1,b,c dilakukan inputan dan output di atas, lalu dibuat 3 func untuk fogog, gohof, dan hofog, lalu dari outputan di panggil langsung func tsb
-
-## Unguided
-
-### 3. [Soal]
-
-[Lingkaran] Suatu lingkaran didefinisikan dengan koordinat titik pusat (cx, cy) dengan radius
-r. Apabila diberikan dua buah lingkaran, maka tentukan posisi sebuah titik sembarang (x, y)
-berdasarkan dua lingkaran tersebut.
-Masukan terdiri dari beberapa tiga baris. Baris pertama dan kedua adalah koordinat titik pusat
-dan radius dari lingkaran 1 dan lingkaran 2, sedangkan baris ketiga adalah koordinat titik
-sembarang. Asumsi sumbu x dan y dari semua titik dan juga radius direpresentasikan dengan
-bilangan bulat.
-Keluaran berupa string yang menyatakan posisi titik "Titik di dalam lingkaran 1 dan 2", "Titik
-di dalam lingkaran 1", "Titik di dalam lingkaran 2", atau "Titik di luar lingkaran 1 dan 2".
-
-#### soal3.go
-
-```go
-package main
-
-import (
-	"fmt"
-	"math"
-)
-
-func jarak(a, b, c, d float64) float64 {
-	return math.Sqrt(math.Pow(a-c, 2) + math.Pow(b-d, 2))
-}
-
-func didalam(cx, cy, r, x, y float64) bool {
-	return jarak(cx, cy, x, y) < r
-}
-
-func main() {
-	var cx1, cy1, r1, cx2, cy2, r2, x, y float64
-
-	fmt.Scan(&cx1, &cy1, &r1)
-	fmt.Scan(&cx2, &cy2, &r2)
-	fmt.Scan(&x, &y)
-
-	L1 := didalam(cx1, cy1, r1, x, y)
-	L2 := didalam(cx2, cy2, r2, x, y)
-
-	if L1 && L2 {
-		fmt.Println("Titik di dalam lingkaran 1 dan 2")
-	} else if L1 {
-		fmt.Println("Titik di dalam lingkaran 1")
-	} else if L2 {
-		fmt.Println("Titik di dalam lingkaran 2")
-	} else {
-		fmt.Println("Titik di luar lingkaran 1 dan 2")
-	}
-}
-
-```
-
-### Output Unguided :
-
-##### Output
-
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
-[penjelasan]
-Pada program diatas penulis mendeklarasi beberapa variable lalu digunakan inputan scan, lalu dibuat func dalam untuk membandingakan dengan radius, lalu dimasukan ke variabel L1 dan L 2, lalu doberikan struktur ko ntrol if else, yang jika l1 daan l2 mempunyai nilai sama maka titik 1 dan 2, kalau tidak, maka titik dalam lingkaran 1, dan kalau tidak maka titik dalam lingkaran 2, dan kalau tidak maka titik di luar lingkaran 1 dan 2
+Penulis mendeklarasikan variable peserta dan pemenang sebagai string lalu maxsoal dan minsoal sebagai int, lalu dibuat for yang di dalamnya berisi inputan peserta lalu dibuat if then jika peserta di input selesai maka perulangan akan selesai, lalu dibuat var soalsekarang dan waktusekkarang dengn tipe data int, lalu di bawa ke func hitung skor yang dimana di func tsb dilakukan inputan menjadi skor lalu soal dengan output
