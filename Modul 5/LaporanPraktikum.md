@@ -6,10 +6,11 @@
 
 ### 1. [Soal]
 
-Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika
-diskrit untuk mempelajari kombinasi dan permutasi. Jonas salah seorang mahasiswa, iseng
-untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu bersediakah kalian
-membantu Jonas? (tidak tentunya ya :p)
+Deret fibonacci adalah sebuah deret dengan nilai suku ke-0 dan ke-1 adalah 0 dan 1, dan nilai
+suku ke-n selanjutnya adalah hasil penjumlahan dua suku sebelumnya. Secara umum dapat
+diformulasikan Sn = Sn−1 + Sn−2 . Berikut ini adalah contoh nilai deret fibonacci hingga suku
+ke-10. Buatlah program yang mengimplementasikan fungsi rekursif pada deret fibonacci
+tersebut.
 
 #### soal1.go
 
@@ -18,35 +19,22 @@ package main
 
 import "fmt"
 
+func fibo(n int) int {
+
+	if n == 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	}
+	return fibo(n-1) + fibo(n-2)
+}
+
 func main() {
-	var a, b, c, d int
-	fmt.Scan(&a, &b, &c, &d)
-
-	if a >= c && b >= d {
-		fmt.Println("permutation: ", permutation(a, c))
-		fmt.Println("combination: ", combination(a, c))
-		fmt.Println("permutation: ", permutation(b, d))
-		fmt.Println("combination: ", combination(b, d))
-	}
+	var n int
+	fmt.Scan(&n)
+	fmt.Print(fibo(n))
 }
 
-func factorial(n int) int {
-	hasil := 1
-	for i := 1; i <= n; i++ {
-		hasil = hasil * i
-	}
-	return hasil
-}
-
-func permutation(n, r int) int {
-	hasil := factorial(n) / factorial((n - r))
-	return hasil
-}
-
-func combination(n, r int) int {
-	hasil := factorial(n) / (factorial(r) * factorial((n - r)))
-	return hasil
-}
 ```
 
 ### Output Unguided :
@@ -55,21 +43,15 @@ func combination(n, r int) int {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
 [penjelasan]
-Penulis mendeklarasikan variable a, b, c, d. lalu membuat inputan , lalu memanggil hasil dari permutasi dan kombinasi, dimana hanya nilai n dan r yang di bawa, untuk di proses permutasi, dan kombinasi, dari dua func itu juga memanggil hasil dari factorial pada func actorial untuk di eksekusi sendiri.
+Penulis mendeklarasikan variable n lalu mebuat inputan dan print yang dimana print tsb langsung menginputan nilai n ke func fibo, pada func fibo ketika n adalah 0 maka akan mengembalikan nilai 0, ketika n == 1 maka mengembalikan 1 dan ketika tidak keduanya maka akan mengembalikan nilai n - 1 ditambah n-2
 
 ## Unguided
 
 ### 2. [Soal]
 
-Diberikan tiga buah fungsi matematika yaitu f (x) = x
-2
-, g (x) = x − 2 dan h (x) = x +
-
-1. Fungsi komposisi (fogoh)(x) artinya adalah f(g(h(x))). Tuliskan f(x), g(x) dan h(x)
-   dalam bentuk function.
-   Masukan terdiri dari sebuah bilangan bulat a, b dan c yang dipisahkan oleh spasi.
-   Keluaran terdiri dari tiga baris. Baris pertama adalah (fogoh)(a), baris kedua (gohof)(b),
-   dan baris ketiga adalah (hofog)(c)!
+Buatlah sebuah program yang digunakan untuk menampilkan pola bintang berikut ini dengan
+menggunakan fungsi rekursif. N adalah masukan dari user.
+Contoh masukan dan keluaran:
 
 #### soal2.go
 
@@ -78,28 +60,30 @@ package main
 
 import "fmt"
 
+func cetakbintang(f int) {
+	if f == 0 {
+		return
+	}
+	fmt.Print("*")
+	cetakbintang(f - 1)
+}
+
+func bintang(n, f int) {
+	if f >= n {
+		return
+	}
+	cetakbintang(f)
+	fmt.Println("*")
+	bintang(n, f+1)
+
+}
+
 func main() {
-	var a, b, c int
-	fmt.Scan(&a, &b, &c)
-	fmt.Printf("(fogog)(%d) = %d ", a, fx(a))
-	fmt.Printf("(gohof)(%d) = %d ", b, gx(b))
-	fmt.Printf("(hofog)(%d) = %d ", c, hx(c))
+	var n int
+	fmt.Scan(&n)
+	bintang(n, 0)
 }
 
-func fx(n int) int {
-	hasil := ((n + 1) - 2) * ((n + 1) - 2)
-	return hasil
-}
-
-func gx(n int) int {
-	hasil := (((n * n) + 1) - 2)
-	return hasil
-}
-
-func hx(n int) int {
-	hasil := ((n - 2) * (n - 2)) + 1
-	return hasil
-}
 
 
 ```
@@ -110,59 +94,40 @@ func hx(n int) int {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
 [penjelasan]
-Penulis mendeklarasikan variable 1,b,c dilakukan inputan dan output di atas, lalu dibuat 3 func untuk fogog, gohof, dan hofog, lalu dari outputan di panggil langsung func tsb
+Penulis mendeklarasikan variable n dan inputan n, lalu dibuat inputan ke func bintang nilai n dan 0, pada func bintang nilai tsb diubah jadi n dan f tipe data int, di dalam func tsb ketika f lebih besar sama dengan n maka tidak mengembalikan nilai apapun atau bakal stop, tapi ketika tidak maka akan mengirim nilai f ke func cetakbintang selanjutnya bakal ngeprint "_", lalu memasukan nilai n dan f+1 ke func bintang yang menyebabkan rekursif terjadi, di dalam func cetak bintang terdapat percabangan ketika f ==0 maka bakal return, dan selanjutnya print _
 
 ## Unguided
 
 ### 3. [Soal]
 
-[Lingkaran] Suatu lingkaran didefinisikan dengan koordinat titik pusat (cx, cy) dengan radius
-r. Apabila diberikan dua buah lingkaran, maka tentukan posisi sebuah titik sembarang (x, y)
-berdasarkan dua lingkaran tersebut.
-Masukan terdiri dari beberapa tiga baris. Baris pertama dan kedua adalah koordinat titik pusat
-dan radius dari lingkaran 1 dan lingkaran 2, sedangkan baris ketiga adalah koordinat titik
-sembarang. Asumsi sumbu x dan y dari semua titik dan juga radius direpresentasikan dengan
-bilangan bulat.
-Keluaran berupa string yang menyatakan posisi titik "Titik di dalam lingkaran 1 dan 2", "Titik
-di dalam lingkaran 1", "Titik di dalam lingkaran 2", atau "Titik di luar lingkaran 1 dan 2".
+Buatlah program yang mengimplementasikan rekursif untuk menampilkan faktor bilangan dari
+suatu N, atau bilangan yang apa saja yang habis membagi N.
+Masukan terdiri dari sebuah bilangan bulat positif N.
+Keluaran terdiri dari barisan bilangan yang menjadi faktor dari N (terurut dari 1 hingga N ya).
+Contoh masukan dan keluaran:
 
 #### soal3.go
 
 ```go
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-func jarak(a, b, c, d float64) float64 {
-	return math.Sqrt(math.Pow(a-c, 2) + math.Pow(b-d, 2))
-}
+func mod(n, b int) {
 
-func didalam(cx, cy, r, x, y float64) bool {
-	return jarak(cx, cy, x, y) < r
+	if b > 0 {
+		mod(n, b-1)
+		if n%b == 0 {
+			fmt.Print(b, " ")
+		}
+
+	}
 }
 
 func main() {
-	var cx1, cy1, r1, cx2, cy2, r2, x, y float64
-
-	fmt.Scan(&cx1, &cy1, &r1)
-	fmt.Scan(&cx2, &cy2, &r2)
-	fmt.Scan(&x, &y)
-
-	L1 := didalam(cx1, cy1, r1, x, y)
-	L2 := didalam(cx2, cy2, r2, x, y)
-
-	if L1 && L2 {
-		fmt.Println("Titik di dalam lingkaran 1 dan 2")
-	} else if L1 {
-		fmt.Println("Titik di dalam lingkaran 1")
-	} else if L2 {
-		fmt.Println("Titik di dalam lingkaran 2")
-	} else {
-		fmt.Println("Titik di luar lingkaran 1 dan 2")
-	}
+	var n int
+	fmt.Scan(&n)
+	mod(n, n)
 }
 
 ```
@@ -173,4 +138,4 @@ func main() {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
 [penjelasan]
-Pada program diatas penulis mendeklarasi beberapa variable lalu digunakan inputan scan, lalu dibuat func dalam untuk membandingakan dengan radius, lalu dimasukan ke variabel L1 dan L 2, lalu doberikan struktur ko ntrol if else, yang jika l1 daan l2 mempunyai nilai sama maka titik 1 dan 2, kalau tidak, maka titik dalam lingkaran 1, dan kalau tidak maka titik dalam lingkaran 2, dan kalau tidak maka titik di luar lingkaran 1 dan 2
+Pada program diatas penulis mendeklarasi n bertipe data int, lalu inputan n, lalu di input ke func mod dengan nilai n dan n, lalu di mod terdapat percabangan ketika b lebih besar dari 0 maka akan menjalankan inputan ke func mod kembali dengan nilai n dan b-1 yang menyebabkan rekusif lalu dibuat percabangan lagi ketika habis dibagi b maka bakal mengeprint b yaitu nilai faktor tsb

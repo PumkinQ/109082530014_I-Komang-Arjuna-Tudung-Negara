@@ -171,6 +171,6 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal3.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
 [penjelasan]
 Pada program diatas penulis mendeklarasi beberapa variable lalu digunakan inputan scan, lalu dibuat func dalam untuk membandingakan dengan radius, lalu dimasukan ke variabel L1 dan L 2, lalu doberikan struktur ko ntrol if else, yang jika l1 daan l2 mempunyai nilai sama maka titik 1 dan 2, kalau tidak, maka titik dalam lingkaran 1, dan kalau tidak maka titik dalam lingkaran 2, dan kalau tidak maka titik di luar lingkaran 1 dan 2
