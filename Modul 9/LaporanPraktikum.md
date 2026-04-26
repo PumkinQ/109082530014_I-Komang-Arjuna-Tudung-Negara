@@ -177,7 +177,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%209/output/Soal2.png)
 [penjelasan]
 Penulis membuat inputan n dan isi array, lalu selanjutnya mengeprint isi array secara keseluruhan, indeks ganjil, dan indeks genap. Terakhir, ada inputan x untuk cek indeks kelipatan x dan inputan untuk menghapus elemen array dengan cara menggeser indeksnya. Setelah itu, program menghitung ratarata dan standar deviasi pake fungsi akar dari library math.
 
@@ -242,7 +242,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%209/output/Soal3.png)
 [penjelasan]
 Penulis membuat inputan nama dua klub, lalu masuk ke perulangan untuk input skor terusmenerus. Selanjutnya, ada percabangan kalo skornya negatif maka perulangan bakal berhenti. Di dalamnya juga dicek siapa yang menang untuk dimasukkan ke slice pemenang, lalu terakhir program bakal mengeprint semua hasil pertandingan yang sudah tersimpan tadi.
 
@@ -328,6 +328,6 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%209/output/Soal4.png)
 [penjelasan]
 Penulis mendeklarasi tipe bentukan tabel untuk menyimpan array karakter, lalu dibuat func isiArray untuk mengambil inputan sampai tanda titik Selanjutnya, ada func balikanArray yang untuk memutar urutan isi array, dan func palindrom untuk mengecek apakah kata aslinya sama dengan kata yang sudah dibalik. Di bagian main, program menjalankan fungsi tersebut lalu menampilkan hasil kebalikan teksnya dan status apakah kata tersebut termasuk palindrom atau bukan.
