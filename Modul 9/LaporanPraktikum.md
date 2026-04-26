@@ -77,7 +77,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%209/output/Soal1.png)
 [penjelasan]
 Penulis membuat tipe bentukan titik dan lingkaran, lalu membuat func cekjarak untuk hitung jarak koordinat pakai rumus Pythagoras. Selanjutnya, ada func cekdalam buat cek apakah jaraknya lebih kecil dari radius. Di bagian main, dibuat inputan untuk dua lingkaran dan satu titik, lalu ada percabangan if-else untuk menentukan posisi titik tersebut ada di dalam lingkaran 1, lingkaran 2, atau keduanya.
 
