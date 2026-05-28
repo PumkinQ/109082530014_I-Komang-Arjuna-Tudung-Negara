@@ -17,13 +17,12 @@ func rumahkerabat(n int) {
 						idx_min = y
 					}
 				}
-				// Swap (Tukar posisi)
 				arr[x], arr[idx_min] = arr[idx_min], arr[x]
 			}
 			for k := 0; k < m; k++ {
 				fmt.Print(arr[k], " ")
 			}
-			fmt.Println() // Pindah baris untuk daerah berikutnya
+			fmt.Println()
 		}
 	}
 }
