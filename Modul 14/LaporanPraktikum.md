@@ -59,7 +59,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal1.png)
 [penjelasan]
 Penulis membuat inputan n yaitu jumlah dearah dan di dalam setiap daerah melakukan perulangan untuk mengambil m yaitu banyaknya rumah, lalu mengisi setiap angka ke dalam slice. Setelah data terkumpul, penulis menerapkan algoritma Selection Sort untuk mengurutkan nomor rumah secara membesar. Selanjutnya, program mengeprint isi slice tersebut secara keseluruhan setelah terurut.
 
@@ -136,7 +136,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal2.png)
 [penjelasan]
 Penulis membuat input n untuk jumlah daerah yang harus diproses. lalu setiap perulangan daerah program membaca m dan langsung memilah setiap nomor rumah yang diinput ke dalam dua slice, selanjutnaya dibuat loop, satu untuk bilangan ganjil dan satu untuk bilangan genap, dengan logika temp % 2 != 0.
 
@@ -196,6 +196,6 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal3.png)
 [penjelasan]
 Penulis membuat slice kosong dan membuat perulangan infinit untuk membaca input bilangan secara terus-menerus. Setiap kali bilangan positif dimasukkan maka program akan menambahkan bilangan tersebut ke dalam slice dan langsung melakukan Insertion Sort dengan cara menyisipkan bilangan baru ke posisi yang tepat agar slice selalu dalam kondisi terurut.Kalau program menemukan input bernilai 0, maka akan menghitung nilai median dari data yang sudah terkumpul
