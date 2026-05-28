@@ -2,50 +2,34 @@ package main
 
 import "fmt"
 
-const NMAX int = 100
-
-type arrBalita [NMAX]float64
-
-func hitungMinMax(arrBerat arrBalita, n int, bMin, bMax *float64) {
-	*bMin = arrBerat[0]
-	*bMax = arrBerat[0]
-	for i := 1; i < n; i++ {
-		if arrBerat[i] < *bMin {
-			*bMin = arrBerat[i]
-		}
-		if arrBerat[i] > *bMax {
-			*bMax = arrBerat[i]
-		}
-	}
-}
-
-func rerata(arrBerat arrBalita, n int) float64 {
-	var total float64
-	for i := 0; i < n; i++ {
-		total += arrBerat[i]
-	}
-	return total / float64(n)
-}
-
 func main() {
-	var n int
-	var arr arrBalita
-	var bMin, bMax float64
+	var data []int
+	var input int
 
-	fmt.Print("Masukan banyak data berat balita : ")
-	fmt.Scan(&n)
+	for {
+		fmt.Scan(&input)
+		if input == -5313 {
+			break
+		}
 
-	for i := 0; i < n; i++ {
-		fmt.Printf("Masukan berat balita ke-%d: ", i+1)
-		fmt.Scan(&arr[i])
-	}
+		if input > 0 {
 
-	if n > 0 {
-		hitungMinMax(arr, n, &bMin, &bMax)
-		rata := rerata(arr, n)
+			data = append(data, input)
 
-		fmt.Printf("Berat balita minimum: %.2f kg\n", bMin)
-		fmt.Printf("Berat balita maksimum: %.2f kg\n", bMax)
-		fmt.Printf("Rerata berat balita: %.2f kg\n", rata)
+			n := len(data)
+			for i := n - 1; i > 0 && data[i] < data[i-1]; i-- {
+				data[i], data[i-1] = data[i-1], data[i]
+			}
+		} else if input == 0 {
+
+			n := len(data)
+			if n%2 != 0 {
+
+				fmt.Println(data[n/2])
+			} else {
+				median := (data[n/2-1] + data[n/2]) / 2
+				fmt.Println(median)
+			}
+		}
 	}
 }

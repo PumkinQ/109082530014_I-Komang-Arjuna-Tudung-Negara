@@ -3,30 +3,49 @@ package main
 import "fmt"
 
 func main() {
-	var x, y int
-	var arr [1000]float64
+	var n, m, temp int
+	fmt.Scan(&n)
 
-	fmt.Scan(&x, &y)
-	for i := 0; i < x; i++ {
-		fmt.Scan(&arr[i])
-	}
+	for i := 0; i < n; i++ {
+		fmt.Scan(&m)
+		var ganjil []int
+		var genap []int
 
-	var totalBeratSemua float64
-	var jumlahWadah int
-
-	for i := 0; i < x; i += y {
-		var beratWadah float64
-		for j := 0; j < y && i+j < x; j++ {
-			beratWadah += arr[i+j]
+		for j := 0; j < m; j++ {
+			fmt.Scan(&temp)
+			if temp%2 != 0 {
+				ganjil = append(ganjil, temp)
+			} else {
+				genap = append(genap, temp)
+			}
 		}
-		fmt.Printf("%g ", beratWadah)
-		totalBeratSemua += beratWadah
-		jumlahWadah++
-	}
-	fmt.Println()
 
-	if jumlahWadah > 0 {
-		rataRata := totalBeratSemua / float64(jumlahWadah)
-		fmt.Printf("%g\n", rataRata)
+		for x := 0; x < len(ganjil)-1; x++ {
+			idx := x
+			for y := x + 1; y < len(ganjil); y++ {
+				if ganjil[y] < ganjil[idx] {
+					idx = y
+				}
+			}
+			ganjil[x], ganjil[idx] = ganjil[idx], ganjil[x]
+		}
+
+		for x := 0; x < len(genap)-1; x++ {
+			idx := x
+			for y := x + 1; y < len(genap); y++ {
+				if genap[y] > genap[idx] {
+					idx = y
+				}
+			}
+			genap[x], genap[idx] = genap[idx], genap[x]
+		}
+
+		for _, val := range ganjil {
+			fmt.Print(val, " ")
+		}
+		for _, val := range genap {
+			fmt.Print(val, " ")
+		}
+		fmt.Println()
 	}
 }

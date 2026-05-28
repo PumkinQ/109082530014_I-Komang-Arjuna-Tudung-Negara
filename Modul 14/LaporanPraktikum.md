@@ -6,14 +6,11 @@
 
 ### 1. [Soal]
 
-Sebuah program digunakan untuk mendata berat anak kelinci yang akan dijual ke pasar.
-Program ini menggunakan array dengan kapasitas 1000 untuk menampung data berat anak
-kelinci yang akan dijual.
-Masukan terdiri dari sekumpulan bilangan, yang mana bilangan pertama adalah bilangan
-bulat N yang menyatakan banyaknya anak kelinci yang akan ditimbang beratnya. Selanjutnya
-N bilangan riil berikutnya adalah berat dari anak kelinci yang akan dijual.
-Keluaran terdiri dari dua buah bilangan riil yang menyatakan berat kelinci terkecil dan
-terbesar.
+Hercules, preman terkenal seantero ibukota, memiliki kerabat di banyak daerah. Tentunya
+Hercules sangat suka mengunjungi semua kerabatnya itu.
+Diberikan masukan nomor rumah dari semua kerabatnya di suatu daerah, buatlah program
+rumahkerabat yang akan menyusun nomor-nomor rumah kerabatnya secara terurut
+membesar menggunakan algoritma selection sort.
 
 #### soal1.go
 
@@ -23,29 +20,38 @@ package main
 import "fmt"
 
 func main() {
-	var n int
-	var arr [1000]float64
 
+	var n, m, idx_min, temp int
 	fmt.Scan(&n)
 	for i := 0; i < n; i++ {
-		fmt.Scan(&arr[i])
-	}
 
-	if n > 0 {
-		min := arr[0]
-		max := arr[0]
+		fmt.Scan(&m)
+		var arr []int
+		for j := 0; j < m; j++ {
 
-		for i := 1; i < n; i++ {
-			if arr[i] < min {
-				min = arr[i]
-			}
-			if arr[i] > max {
-				max = arr[i]
-			}
+			fmt.Scan(&temp)
+			arr = append(arr, temp)
+
 		}
-		fmt.Printf("%g %g\n", min, max)
+		for x := 0; x < m-1; x++ {
+			idx_min = x
+			for y := x + 1; y < m; y++ {
+				if arr[y] < arr[idx_min] {
+					idx_min = y
+				}
+			}
+			arr[x], arr[idx_min] = arr[idx_min], arr[x]
+		}
+		fmt.Println("HASIL Loop ke-", i+1)
+		for k := 0; k < m; k++ {
+			fmt.Print(arr[k], " ")
+		}
+		fmt.Println()
+		fmt.Println()
 	}
+
 }
+
 
 ```
 
@@ -55,23 +61,18 @@ func main() {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal1.png)
 [penjelasan]
-Penulis mendeklarasikan variabel n dan array dengan kapasitas 1000 untuk menampung berat kelinci. Pertama, dibuat inputan n untuk jumlah anak kelinci, lalu dilanjutkan dengan perulangan untuk mengisi nilai ke dalam array. Selanjutny dibuat variabel min dan max yang diinilisisialisasi dengan nilai elemen pertama array. lalu dilakukan perulangan dan percabangan if untuk membandingkan setiap isi array, jika ada yang lebih kecil maka akan masuk ke variabel min dan jika lebih besar akan masuk ke variabel max, lalu hasilnya langsung diprint.
+Penulis membuat inputan n yaitu jumlah dearah dan di dalam setiap daerah melakukan perulangan untuk mengambil m yaitu banyaknya rumah, lalu mengisi setiap angka ke dalam slice. Setelah data terkumpul, penulis menerapkan algoritma Selection Sort untuk mengurutkan nomor rumah secara membesar. Selanjutnya, program mengeprint isi slice tersebut secara keseluruhan setelah terurut.
 
 ## Unguided
 
 ### 2. [Soal]
 
-Sebuah program digunakan untuk menentukan tarif ikan yang akan dijual ke pasar. Program
-ini menggunakan array dengan kapasitas 1000 untuk menampung data berat ikan yang akan
-dijual.
-Masukan terdiri dari dua baris, yang mana baris pertama terdiri dari dua bilangan bulat x dan
-y. Bilangan x menyatakan banyaknya ikan yang akan dijual, sedangkan y adalah banyaknya
-ikan yang akan dimasukan ke dalam wadah. Baris kedua terdiri dari sejumlah x bilangan riil
-yang menyatakan banyaknya ikan yang akan dijual.
-Keluaran terdiri dari dua baris. Baris pertama adalah kumpulan bilangan riil yang menyatakan
-total berat ikan di setiap wadah (jumlah wadah tergantung pada nilai x dan y, urutan ikan yang
-dimasukan ke dalam wadah sesuai urutan pada masukan baris ke-2). Baris kedua adalah
-sebuah bilangan riil yang menyatakan berat rata-rata ikan di setiap wadah.
+Belakangan diketahui ternyata Hercules itu tidak berani menyeberang jalan, maka selalu
+diusahakan agar hanya menyeberang jalan sesedikit mungkin, hanya diujung jalan. Karena
+nomor rumah sisi kiri jalan selalu ganjil dan sisi kanan jalan selalu genap, maka buatlah
+program kerabat dekat yang akan menampilkan nomor rumah mulai dari nomor yang ganjil
+lebih dulu terurut membesar dan kemudian menampilkan nomor rumah dengan nomor
+genap terurut mengecil.
 
 #### soal2.go
 
@@ -81,33 +82,53 @@ package main
 import "fmt"
 
 func main() {
-	var x, y int
-	var arr [1000]float64
+	var n, m, temp int
+	fmt.Scan(&n)
 
-	fmt.Scan(&x, &y)
-	for i := 0; i < x; i++ {
-		fmt.Scan(&arr[i])
-	}
+	for i := 0; i < n; i++ {
+		fmt.Scan(&m)
+		var ganjil []int
+		var genap []int
 
-	var totalBeratSemua float64
-	var jumlahWadah int
-
-	for i := 0; i < x; i += y {
-		var beratWadah float64
-		for j := 0; j < y && i+j < x; j++ {
-			beratWadah += arr[i+j]
+		for j := 0; j < m; j++ {
+			fmt.Scan(&temp)
+			if temp%2 != 0 {
+				ganjil = append(ganjil, temp)
+			} else {
+				genap = append(genap, temp)
+			}
 		}
-		fmt.Printf("%g ", beratWadah)
-		totalBeratSemua += beratWadah
-		jumlahWadah++
-	}
-	fmt.Println()
 
-	if jumlahWadah > 0 {
-		rataRata := totalBeratSemua / float64(jumlahWadah)
-		fmt.Printf("%g\n", rataRata)
+		for x := 0; x < len(ganjil)-1; x++ {
+			idx := x
+			for y := x + 1; y < len(ganjil); y++ {
+				if ganjil[y] < ganjil[idx] {
+					idx = y
+				}
+			}
+			ganjil[x], ganjil[idx] = ganjil[idx], ganjil[x]
+		}
+
+		for x := 0; x < len(genap)-1; x++ {
+			idx := x
+			for y := x + 1; y < len(genap); y++ {
+				if genap[y] > genap[idx] {
+					idx = y
+				}
+			}
+			genap[x], genap[idx] = genap[idx], genap[x]
+		}
+
+		for _, val := range ganjil {
+			fmt.Print(val, " ")
+		}
+		for _, val := range genap {
+			fmt.Print(val, " ")
+		}
+		fmt.Println()
 	}
 }
+
 
 ```
 
@@ -117,16 +138,17 @@ func main() {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal2.png)
 [penjelasan]
-Penulis membuat inputan x untuk jumlah ikan dan y untuk kapasitas wadah, serta array untuk menyimpan berat masing masing ikan. Selanjutny digunakan nestedloop untuk menjumlahkan berat ikan ke dalam setiap wadah sesuai kapasitas y yang ditentukan. Di dalam perulangan tersebut, selanjutnya total berat tiap wadah diprint secara berurutan, lalu dihitung juga total berat keseluruhan dan jumlah wadahnya. Terakhir, lalu program menghitung rata-rata berat per wadah dengan membagi total berat semua ikan dengan jumlah wadah yang digunakan.
+Penulis membuat input n untuk jumlah daerah yang harus diproses. lalu setiap perulangan daerah program membaca m dan langsung memilah setiap nomor rumah yang diinput ke dalam dua slice, selanjutnaya dibuat loop, satu untuk bilangan ganjil dan satu untuk bilangan genap, dengan logika temp % 2 != 0.
 
 ## Unguided
 
 ### 3. [Soal]
 
-Pos Pelayanan Terpadu (posyandu) sebagai tempat pelayanan kesehatan perlu mencatat data
-berat balita (dalam kg). Petugas akan memasukkan data tersebut ke dalam array. Dari data
-yang diperoleh akan dicari berat balita terkecil, terbesar, dan reratanya.
-Buatlah program dengan spesifikasi subprogram sebagai berikut:
+Kompetisi pemrograman yang baru saja berlalu diikuti oleh 17 tim dari berbagai perguruan
+tinggi ternama. Dalam kompetisi tersebut, setiap tim berlomba untuk menyelesaikan
+sebanyak mungkin problem yang diberikan. Dari 13 problem yang diberikan, ada satu
+problem yang menarik. Problem tersebut mudah dipahami, hampir semua tim mencoba
+untuk menyelesaikannya, tetapi hanya 3 tim yang berhasil. Apa sih problemnya?
 
 #### soal3.go
 
@@ -135,53 +157,38 @@ package main
 
 import "fmt"
 
-const NMAX int = 100
-
-type arrBalita [NMAX]float64
-
-func hitungMinMax(arrBerat arrBalita, n int, bMin, bMax *float64) {
-	*bMin = arrBerat[0]
-	*bMax = arrBerat[0]
-	for i := 1; i < n; i++ {
-		if arrBerat[i] < *bMin {
-			*bMin = arrBerat[i]
-		}
-		if arrBerat[i] > *bMax {
-			*bMax = arrBerat[i]
-		}
-	}
-}
-
-func rerata(arrBerat arrBalita, n int) float64 {
-	var total float64
-	for i := 0; i < n; i++ {
-		total += arrBerat[i]
-	}
-	return total / float64(n)
-}
-
 func main() {
-	var n int
-	var arr arrBalita
-	var bMin, bMax float64
+	var data []int
+	var input int
 
-	fmt.Print("Masukan banyak data berat balita : ")
-	fmt.Scan(&n)
+	for {
+		fmt.Scan(&input)
+		if input == -5313 {
+			break
+		}
 
-	for i := 0; i < n; i++ {
-		fmt.Printf("Masukan berat balita ke-%d: ", i+1)
-		fmt.Scan(&arr[i])
-	}
+		if input > 0 {
 
-	if n > 0 {
-		hitungMinMax(arr, n, &bMin, &bMax)
-		rata := rerata(arr, n)
+			data = append(data, input)
 
-		fmt.Printf("Berat balita minimum: %.2f kg\n", bMin)
-		fmt.Printf("Berat balita maksimum: %.2f kg\n", bMax)
-		fmt.Printf("Rerata berat balita: %.2f kg\n", rata)
+			n := len(data)
+			for i := n - 1; i > 0 && data[i] < data[i-1]; i-- {
+				data[i], data[i-1] = data[i-1], data[i]
+			}
+		} else if input == 0 {
+
+			n := len(data)
+			if n%2 != 0 {
+
+				fmt.Println(data[n/2])
+			} else {
+				median := (data[n/2-1] + data[n/2]) / 2
+				fmt.Println(median)
+			}
+		}
 	}
 }
+
 
 ```
 
@@ -191,4 +198,4 @@ func main() {
 
 ![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%203/output/Soal.3.png)
 [penjelasan]
-Penulis menggunakan tipe bentukan arrBalita untuk berguna menyimpan data berat dalam array. selanjutnya pada program ini dibuat dua subprogram, yaitu func hitungMinMax yang menggunakan parameter pointer untuk mencari nilai terkecil dan terbesar, lalu func rerata untuk menghitung nilai rata rata berat balita. Di bagian main penulis membuat inputan jumlah data dan mengisi array menggunakan perulangan, lalu selanjutnya memanggil fungsi fungsi tadi untuk menampilkan hasil berat minimum, maksimum, dan rata ratanya dengan format dua angka di belakang koma.
+Penulis membuat slice kosong dan membuat perulangan infinit untuk membaca input bilangan secara terus-menerus. Setiap kali bilangan positif dimasukkan maka program akan menambahkan bilangan tersebut ke dalam slice dan langsung melakukan Insertion Sort dengan cara menyisipkan bilangan baru ke posisi yang tepat agar slice selalu dalam kondisi terurut.Kalau program menemukan input bernilai 0, maka akan menghitung nilai median dari data yang sudah terkumpul
