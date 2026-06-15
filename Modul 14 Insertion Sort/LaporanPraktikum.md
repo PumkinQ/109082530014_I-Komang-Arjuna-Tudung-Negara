@@ -80,7 +80,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal1.png)
+![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014%20Insertion%20Sort/output/Soal1.png)
 [penjelasan]
 Penulis membuat inputan n yaitu jumlah dearah dan di dalam setiap daerah melakukan perulangan untuk mengambil m yaitu banyaknya rumah, lalu mengisi setiap angka ke dalam slice. Setelah data terkumpul, penulis menerapkan algoritma Selection Sort untuk mengurutkan nomor rumah secara membesar. Selanjutnya, program mengeprint isi slice tersebut secara keseluruhan setelah terurut.
 
