@@ -211,7 +211,7 @@ func main() {
 
 ##### Output
 
-![Screenshot Output Unguided 1_1](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal2.png)
+![Screenshot Output Unguided 1_1]([https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014/output/Soal2.png](https://github.com/PumkinQ/109082530014_I-Komang-Arjuna-Tudung-Negara/blob/main/Modul%2014%20Insertion%20Sort/output/Soal2.png))
 [penjelasan]
 Penulis membuat input n untuk jumlah daerah yang harus diproses. lalu setiap perulangan daerah program membaca m dan langsung memilah setiap nomor rumah yang diinput ke dalam dua slice, selanjutnaya dibuat loop, satu untuk bilangan ganjil dan satu untuk bilangan genap, dengan logika temp % 2 != 0.
 
